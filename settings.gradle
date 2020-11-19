@@ -1,0 +1,6 @@
+rootProject.name = 'quizle'
+
+include 'quizle-common'
+include 'quizle-api'
+include 'quizle-admin-api'
+
