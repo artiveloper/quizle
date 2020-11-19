@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Table(name = "CATEGORY")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-public class Category {
+public class Category extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,8 +25,9 @@ public class Category {
     private String image;
 
     @Builder
-    public Category(String name) {
+    public Category(String name, String image) {
         this.name = name;
+        this.image = image;
     }
 
 }
