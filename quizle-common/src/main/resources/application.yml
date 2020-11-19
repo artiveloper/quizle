@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active: local
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+logging.level:
+  org.hibernate.SQL: debug
