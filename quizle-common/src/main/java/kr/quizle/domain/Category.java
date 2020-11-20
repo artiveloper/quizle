@@ -21,13 +21,13 @@ public class Category extends BaseTimeEntity {
     @Column(nullable = false)
     private String name;
 
-    @Column
-    private String image;
+    @Column(name = "IMAGE_URL")
+    private String imageUrl;
 
     @Builder
-    public Category(String name, String image) {
+    public Category(String name, String imageUrl) {
         this.name = name;
-        this.image = image;
+        this.imageUrl = imageUrl;
     }
 
 }

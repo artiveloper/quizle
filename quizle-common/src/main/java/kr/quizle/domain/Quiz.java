@@ -16,7 +16,11 @@ public class Quiz extends BaseTimeEntity {
     @Column(name = "QUIZ_ID")
     private Long id;
 
+    @Column(nullable = false)
     private String name;
+
+    @Column(name = "IMAGE_URL")
+    private String imageUrl;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "CATEGORY_ID")
