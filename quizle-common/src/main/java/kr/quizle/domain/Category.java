@@ -1,16 +1,12 @@
 package kr.quizle.domain;
 
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "CATEGORY")
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
+@NoArgsConstructor
 public class Category extends BaseTimeEntity {
 
     @Id
@@ -25,7 +21,8 @@ public class Category extends BaseTimeEntity {
     private String imageUrl;
 
     @Builder
-    public Category(String name, String imageUrl) {
+    public Category(Long id, String name, String imageUrl) {
+        this.id = id;
         this.name = name;
         this.imageUrl = imageUrl;
     }
