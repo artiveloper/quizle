@@ -28,4 +28,9 @@ public class Category extends BaseTimeEntity {
         this.imageUrl = imageUrl;
     }
 
+    public void updateCategory(String name, String imageUrl) {
+        this.name = name;
+        this.imageUrl = imageUrl;
+    }
+
 }
