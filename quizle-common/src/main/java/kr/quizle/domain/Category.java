@@ -7,6 +7,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @NoArgsConstructor
+@EqualsAndHashCode(of = {"id", "name", "imageUrl"}, callSuper = false)
 public class Category extends BaseTimeEntity {
 
     @Id

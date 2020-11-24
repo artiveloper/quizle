@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Table(name = "QUIZ")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-@ToString(of = {"id", "name"})
+@EqualsAndHashCode(of = {"id", "name", "imageUrl"}, callSuper = false)
 public class Quiz extends BaseTimeEntity {
 
     @Id
