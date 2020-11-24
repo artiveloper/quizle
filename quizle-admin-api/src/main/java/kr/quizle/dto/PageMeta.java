@@ -1,5 +1,6 @@
 package kr.quizle.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import org.springframework.data.domain.Page;
 
@@ -10,8 +11,10 @@ public class PageMeta {
 
     private int totalPage;
 
+    @JsonProperty("isFirst")
     private boolean isFirst;
 
+    @JsonProperty("isLast")
     private boolean isLast;
 
     public PageMeta(Page<?> page) {
