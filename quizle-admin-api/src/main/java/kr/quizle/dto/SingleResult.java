@@ -7,4 +7,8 @@ public class SingleResult<T> {
 
     T data;
 
+    public SingleResult(T data) {
+        this.data = data;
+    }
+
 }
