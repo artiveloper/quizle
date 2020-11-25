@@ -1,4 +1,4 @@
-package kr.quizle.dto;
+package kr.quizle.global.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;

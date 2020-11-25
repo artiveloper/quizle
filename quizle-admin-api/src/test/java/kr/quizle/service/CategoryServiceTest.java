@@ -3,11 +3,10 @@ package kr.quizle.service;
 import kr.quizle.CategoryHelper;
 import kr.quizle.domain.Category;
 import kr.quizle.domain.CategoryRepository;
-import kr.quizle.dto.PageRequest;
 import kr.quizle.dto.category.AddCategoryDto;
 import kr.quizle.dto.category.CategoryResponse;
 import kr.quizle.dto.category.UpdateCategoryDto;
-import org.hibernate.sql.Update;
+import kr.quizle.global.dto.PageRequest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -17,7 +16,6 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 
-import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;

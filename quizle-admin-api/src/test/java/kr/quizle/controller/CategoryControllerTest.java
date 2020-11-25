@@ -2,10 +2,10 @@ package kr.quizle.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import kr.quizle.CategoryHelper;
-import kr.quizle.dto.PageRequest;
 import kr.quizle.dto.category.AddCategoryDto;
 import kr.quizle.dto.category.CategoryResponse;
 import kr.quizle.dto.category.UpdateCategoryDto;
+import kr.quizle.global.dto.PageRequest;
 import kr.quizle.service.CategoryService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
