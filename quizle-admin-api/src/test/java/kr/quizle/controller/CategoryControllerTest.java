@@ -10,6 +10,8 @@ import kr.quizle.service.CategoryService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
+import org.springframework.boot.autoconfigure.context.MessageSourceAutoConfiguration;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.Page;
@@ -22,6 +24,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest(controllers = CategoryController.class)
+@ImportAutoConfiguration(MessageSourceAutoConfiguration.class)
 class CategoryControllerTest {
 
     @Autowired
@@ -55,6 +58,47 @@ class CategoryControllerTest {
                 .andExpect(redirectedUrl(url + "/1"));
 
         verify(categoryService).addCategory(resources);
+    }
+
+    @DisplayName("1.1 카테고리 추가에 실패한다 - 유효성 검사 [이름 공백]")
+    @Test
+    void createCategoryExceptionTest() throws Exception {
+        //given
+        String url = "/v1/categories";
+
+        String categoryName = "";
+
+        AddCategoryDto resources = AddCategoryDto
+                .builder()
+                .name(categoryName)
+                .build();
+
+        //when, then
+        this.mockMvc.perform(post(url)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(resources)))
+                .andExpect(status().is4xxClientError())
+                .andExpect(jsonPath("$.errors[0].field").value("name"))
+                .andExpect(jsonPath("$.errors[0].reason").value("카테고리명을 다시 확인해주세요"));
+    }
+
+    @DisplayName("1.2 카테고리 추가에 실패한다 - 유효성 검사 [이름 NULL]")
+    @Test
+    void createCategoryExceptionTest2() throws Exception {
+        //given
+        String url = "/v1/categories";
+
+        AddCategoryDto resources = AddCategoryDto
+                .builder()
+                .build();
+
+        //when, then
+        this.mockMvc.perform(post(url)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(resources)))
+                .andExpect(status().is4xxClientError())
+                .andExpect(jsonPath("$.errors[0].field").value("name"))
+                .andExpect(jsonPath("$.errors[0].reason").value("카테고리명을 다시 확인해주세요"));
     }
 
     @DisplayName("2. 카테고리 목록을 가져온다")
@@ -109,6 +153,43 @@ class CategoryControllerTest {
 
         //then
         verify(categoryService).updateCategory(Long.parseLong(categoryId), resource);
+    }
+
+    @DisplayName("3.1 카테고리 수정에 실패한다 - 유효성 검사 [이름 공백]")
+    @Test
+    void updateCategoryExceptionTest() throws Exception {
+        //given
+        String categoryId = "1";
+        String url = "/v1/categories/" + categoryId;
+
+        UpdateCategoryDto resource = UpdateCategoryDto
+                .builder()
+                .name("")
+                .build();
+
+        //when
+        this.mockMvc.perform(patch(url)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(resource)))
+                .andExpect(status().is4xxClientError());
+    }
+
+    @DisplayName("3.2 카테고리 수정에 실패한다 - 유효성 검사 [이름 NULL]")
+    @Test
+    void updateCategoryExceptionTest2() throws Exception {
+        //given
+        String categoryId = "1";
+        String url = "/v1/categories/" + categoryId;
+
+        UpdateCategoryDto resource = UpdateCategoryDto
+                .builder()
+                .build();
+
+        //when
+        this.mockMvc.perform(patch(url)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(resource)))
+                .andExpect(status().is4xxClientError());
     }
 
     @DisplayName("4. 카테고리를 삭제한다")

@@ -11,13 +11,13 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 public class AddCategoryDto {
 
-    @NotBlank
+    @NotBlank(message = "{categoryName.notBlank}")
     private String name;
 
     private String imageUrl;
 
     @Builder
-    public AddCategoryDto(@NotBlank String name, String imageUrl) {
+    public AddCategoryDto(String name, String imageUrl) {
         this.name = name;
         this.imageUrl = imageUrl;
     }
