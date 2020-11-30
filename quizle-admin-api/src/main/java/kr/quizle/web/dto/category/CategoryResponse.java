@@ -1,4 +1,4 @@
-package kr.quizle.dto.category;
+package kr.quizle.web.dto.category;
 
 import kr.quizle.domain.Category;
 import lombok.Data;

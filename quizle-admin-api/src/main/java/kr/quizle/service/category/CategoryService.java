@@ -1,10 +1,10 @@
-package kr.quizle.service;
+package kr.quizle.service.category;
 
 import kr.quizle.domain.Category;
 import kr.quizle.domain.CategoryRepository;
-import kr.quizle.dto.category.AddCategoryDto;
-import kr.quizle.dto.category.CategoryResponse;
-import kr.quizle.dto.category.UpdateCategoryDto;
+import kr.quizle.web.dto.category.AddCategoryDto;
+import kr.quizle.web.dto.category.CategoryResponse;
+import kr.quizle.web.dto.category.UpdateCategoryDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

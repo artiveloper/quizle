@@ -1,12 +1,12 @@
-package kr.quizle.controller;
+package kr.quizle.web;
 
-import kr.quizle.dto.category.AddCategoryDto;
-import kr.quizle.dto.category.CategoryResponse;
-import kr.quizle.dto.category.UpdateCategoryDto;
-import kr.quizle.global.dto.ListResult;
-import kr.quizle.global.dto.PageMeta;
-import kr.quizle.global.dto.PageRequest;
-import kr.quizle.service.CategoryService;
+import kr.quizle.web.dto.category.AddCategoryDto;
+import kr.quizle.web.dto.category.CategoryResponse;
+import kr.quizle.web.dto.category.UpdateCategoryDto;
+import kr.quizle.web.dto.global.ListResult;
+import kr.quizle.web.dto.global.PageMeta;
+import kr.quizle.web.dto.global.PageRequest;
+import kr.quizle.service.category.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;

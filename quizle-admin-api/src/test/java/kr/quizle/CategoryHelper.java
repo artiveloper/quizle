@@ -1,7 +1,7 @@
 package kr.quizle;
 
 import kr.quizle.domain.Category;
-import kr.quizle.global.dto.PageRequest;
+import kr.quizle.web.dto.global.PageRequest;
 import org.springframework.data.domain.PageImpl;
 
 import java.util.ArrayList;
