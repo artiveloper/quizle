@@ -3,9 +3,9 @@ package kr.quizle.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import kr.quizle.CategoryHelper;
 import kr.quizle.web.CategoryController;
-import kr.quizle.web.dto.category.AddCategoryDto;
+import kr.quizle.web.dto.category.AddCategoryRequest;
 import kr.quizle.web.dto.category.CategoryResponse;
-import kr.quizle.web.dto.category.UpdateCategoryDto;
+import kr.quizle.web.dto.category.UpdateCategoryRequest;
 import kr.quizle.web.dto.global.PageRequest;
 import kr.quizle.service.category.CategoryService;
 import org.junit.jupiter.api.DisplayName;
@@ -44,7 +44,7 @@ class CategoryControllerTest {
 
         String categoryName = "인물";
 
-        AddCategoryDto resources = AddCategoryDto
+        AddCategoryRequest resources = AddCategoryRequest
                 .builder()
                 .name(categoryName)
                 .build();
@@ -69,7 +69,7 @@ class CategoryControllerTest {
 
         String categoryName = "";
 
-        AddCategoryDto resources = AddCategoryDto
+        AddCategoryRequest resources = AddCategoryRequest
                 .builder()
                 .name(categoryName)
                 .build();
@@ -89,7 +89,7 @@ class CategoryControllerTest {
         //given
         String url = "/v1/categories";
 
-        AddCategoryDto resources = AddCategoryDto
+        AddCategoryRequest resources = AddCategoryRequest
                 .builder()
                 .build();
 
@@ -141,7 +141,7 @@ class CategoryControllerTest {
         String categoryId = "1";
         String url = "/v1/categories/" + categoryId;
 
-        UpdateCategoryDto resource = UpdateCategoryDto
+        UpdateCategoryRequest resource = UpdateCategoryRequest
                 .builder()
                 .name("인물퀴즈 수정")
                 .build();
@@ -163,7 +163,7 @@ class CategoryControllerTest {
         String categoryId = "1";
         String url = "/v1/categories/" + categoryId;
 
-        UpdateCategoryDto resource = UpdateCategoryDto
+        UpdateCategoryRequest resource = UpdateCategoryRequest
                 .builder()
                 .name("")
                 .build();
@@ -182,7 +182,7 @@ class CategoryControllerTest {
         String categoryId = "1";
         String url = "/v1/categories/" + categoryId;
 
-        UpdateCategoryDto resource = UpdateCategoryDto
+        UpdateCategoryRequest resource = UpdateCategoryRequest
                 .builder()
                 .build();
 

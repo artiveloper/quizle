@@ -1,8 +1,8 @@
 package kr.quizle.web;
 
-import kr.quizle.web.dto.category.AddCategoryDto;
+import kr.quizle.web.dto.category.AddCategoryRequest;
 import kr.quizle.web.dto.category.CategoryResponse;
-import kr.quizle.web.dto.category.UpdateCategoryDto;
+import kr.quizle.web.dto.category.UpdateCategoryRequest;
 import kr.quizle.web.dto.global.ListResult;
 import kr.quizle.web.dto.global.PageMeta;
 import kr.quizle.web.dto.global.PageRequest;
@@ -33,7 +33,7 @@ public class CategoryController {
      */
 
     @PostMapping
-    public ResponseEntity<?> createCategory(@RequestBody @Valid AddCategoryDto resource) throws URISyntaxException {
+    public ResponseEntity<?> createCategory(@RequestBody @Valid AddCategoryRequest resource) throws URISyntaxException {
         Long categoryId = categoryService.addCategory(resource);
         String url = "/v1/categories/" + categoryId;
         return ResponseEntity.created(new URI(url)).body("{}");
@@ -48,7 +48,7 @@ public class CategoryController {
 
     @PatchMapping("/{categoryId}")
     public ResponseEntity<?> updateCategory(@PathVariable Long categoryId,
-                                         @RequestBody @Valid UpdateCategoryDto resource) {
+                                         @RequestBody @Valid UpdateCategoryRequest resource) {
         categoryService.updateCategory(categoryId, resource);
         return ResponseEntity.ok("{}");
     }

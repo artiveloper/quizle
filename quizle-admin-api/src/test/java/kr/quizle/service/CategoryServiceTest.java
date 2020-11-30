@@ -4,9 +4,9 @@ import kr.quizle.CategoryHelper;
 import kr.quizle.domain.Category;
 import kr.quizle.domain.CategoryRepository;
 import kr.quizle.service.category.CategoryService;
-import kr.quizle.web.dto.category.AddCategoryDto;
+import kr.quizle.web.dto.category.AddCategoryRequest;
 import kr.quizle.web.dto.category.CategoryResponse;
-import kr.quizle.web.dto.category.UpdateCategoryDto;
+import kr.quizle.web.dto.category.UpdateCategoryRequest;
 import kr.quizle.web.dto.global.PageRequest;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -42,7 +42,7 @@ class CategoryServiceTest {
         //given
         String categoryName = "인물퀴즈";
 
-        AddCategoryDto resource = AddCategoryDto.builder()
+        AddCategoryRequest resource = AddCategoryRequest.builder()
                 .name(categoryName)
                 .build();
 
@@ -93,7 +93,7 @@ class CategoryServiceTest {
                 .imageUrl("인물퀴즈 이미지 주소")
                 .build();
 
-        UpdateCategoryDto expectedCategory = UpdateCategoryDto.builder()
+        UpdateCategoryRequest expectedCategory = UpdateCategoryRequest.builder()
                 .name("인물퀴즈(해외)")
                 .imageUrl("인물퀴즈 이미지 주소 변경 후")
                 .build();

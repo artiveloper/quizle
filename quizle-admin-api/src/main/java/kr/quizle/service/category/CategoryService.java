@@ -2,9 +2,9 @@ package kr.quizle.service.category;
 
 import kr.quizle.domain.Category;
 import kr.quizle.domain.CategoryRepository;
-import kr.quizle.web.dto.category.AddCategoryDto;
+import kr.quizle.web.dto.category.AddCategoryRequest;
 import kr.quizle.web.dto.category.CategoryResponse;
-import kr.quizle.web.dto.category.UpdateCategoryDto;
+import kr.quizle.web.dto.category.UpdateCategoryRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -21,8 +21,8 @@ public class CategoryService {
     private final CategoryRepository categoryRepository;
 
     @Transactional
-    public Long addCategory(AddCategoryDto addCategoryDto) {
-        Category category = addCategoryDto.toEntity();
+    public Long addCategory(AddCategoryRequest addCategoryRequest) {
+        Category category = addCategoryRequest.toEntity();
 
         categoryRepository.save(category);
 
@@ -35,7 +35,7 @@ public class CategoryService {
     }
 
     @Transactional
-    public void updateCategory(Long categoryId, UpdateCategoryDto resource) {
+    public void updateCategory(Long categoryId, UpdateCategoryRequest resource) {
         Category category = categoryRepository.findById(categoryId)
                 .orElseThrow(() -> new EntityNotFoundException(categoryId + " not found."));
 
