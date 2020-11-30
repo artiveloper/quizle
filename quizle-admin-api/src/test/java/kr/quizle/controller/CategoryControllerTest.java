@@ -2,21 +2,19 @@ package kr.quizle.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import kr.quizle.CategoryHelper;
-import kr.quizle.web.CategoryController;
+import kr.quizle.MockMvcTest;
+import kr.quizle.service.category.CategoryService;
 import kr.quizle.web.dto.category.AddCategoryRequest;
 import kr.quizle.web.dto.category.CategoryResponse;
 import kr.quizle.web.dto.category.UpdateCategoryRequest;
 import kr.quizle.web.dto.global.PageRequest;
-import kr.quizle.service.category.CategoryService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
-import org.springframework.boot.autoconfigure.context.MessageSourceAutoConfiguration;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.Page;
 import org.springframework.http.MediaType;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.BDDMockito.given;
@@ -24,8 +22,7 @@ import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@WebMvcTest(controllers = CategoryController.class)
-@ImportAutoConfiguration(MessageSourceAutoConfiguration.class)
+@MockMvcTest
 class CategoryControllerTest {
 
     @Autowired

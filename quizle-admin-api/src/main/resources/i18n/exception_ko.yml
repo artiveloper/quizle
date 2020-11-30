@@ -15,3 +15,13 @@ entityNotFound:
   code: "CE04"
   message: "리소스를 찾을 수 없습니다"
   status: "400"
+
+# 인증 에러
+authenticationError:
+  code: "SE01"
+  message: "토큰이 올바르지 않거나 만료시간이 지났습니다."
+  status: "401"
+signInFail:
+  code: "UE01"
+  message: "아이디와 비밀번호를 확인해주세요."
+  status: "401"
