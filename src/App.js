@@ -1,11 +1,8 @@
 import React from 'react';
+import AppRouter from './AppRouter';
 
 const App = () => {
-    return (
-        <div>
-            <p>hello world.</p>
-        </div>
-    );
+    return <AppRouter />;
 };
 
 export default App;
